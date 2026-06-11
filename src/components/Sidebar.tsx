@@ -2,18 +2,20 @@ import { createSignal, For, Show } from 'solid-js';
 import { useFileTree } from '../composables/useFileTree';
 import { useTheme } from '../composables/useTheme';
 import { useTabs } from '../composables/useTabs';
-import { useNavigate, useLocation } from '@solidjs/router';
 import SkillsBrowser from './SkillsBrowser';
 
-export default function Sidebar() {
+interface SidebarProps {
+  navigate: (path: string) => void;
+  currentPath: () => string;
+}
+
+export default function Sidebar(props: SidebarProps) {
   const { fileTree, selectedFile, loading, toggleNode, selectFile } = useFileTree();
   const { theme, toggleTheme } = useTheme();
   const { addTab } = useTabs();
-  const navigate = useNavigate();
-  const location = useLocation();
   const [searchQuery, setSearchQuery] = createSignal('');
 
-  const currentPath = () => location.pathname;
+  const currentPath = () => props.currentPath();
 
   const handleCreateFromTemplate = (template: string) => {
     const fileName = `skill-${Date.now()}.md`;
@@ -83,66 +85,73 @@ export default function Sidebar() {
     );
   };
 
+  const navItems = () => [
+    { path: '/', label: 'Files', icon: 'i-lucide-folder' },
+    { path: '/skills', label: 'Skills', icon: 'i-lucide-bolt' },
+    { path: '/workflows', label: 'Workflows', icon: 'i-lucide-git-branch' },
+    { path: '/settings', label: 'Settings', icon: 'i-lucide-settings' },
+  ];
+
+  const aiRegistryItems = () => [
+    { path: '/ai-registry', label: 'Home', icon: 'i-lucide-home' },
+    { path: '/ai-registry/agents', label: 'Agents', icon: 'i-lucide-bot' },
+    { path: '/ai-registry/models', label: 'Models', icon: 'i-lucide-cpu' },
+    { path: '/ai-registry/datasets', label: 'Datasets', icon: 'i-lucide-database' },
+    { path: '/ai-registry/prompts', label: 'Prompts', icon: 'i-lucide-message-square' },
+    { path: '/ai-registry/compare', label: 'Compare', icon: 'i-lucide-scale' },
+  ];
+
+  const isAIRegistryPath = () => currentPath().startsWith('/ai-registry');
+
   return (
     <aside class="w-64 bg-bg-secondary border-r border-border flex flex-col">
       <div class="p-4 border-b border-border">
-        <h1 class="text-xl font-bold text-text-primary mb-3">Agent Manager</h1>
-        <div class="flex gap-1 mb-3">
+        <h1 class="text-xl font-bold text-text-primary mb-4">Agent Manager</h1>
+        
+        <div class="space-y-2">
           <button
             type="button"
             classList={{
-              'bg-primary text-bg-primary': currentPath() === '/ai-registry',
-              'bg-bg-tertiary text-text-secondary': currentPath() !== '/ai-registry',
+              'bg-primary text-bg-primary': isAIRegistryPath(),
+              'bg-bg-tertiary text-text-secondary': !isAIRegistryPath(),
             }}
-            class="flex-1 px-2 py-1 rounded text-xs font-medium transition-colors"
-            onClick={() => navigate('/ai-registry')}
+            class="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            onClick={() => props.navigate('/ai-registry')}
           >
-            🤖 AI Registry
+            <span class="i-lucide-robot" />
+            <span>AI Registry</span>
           </button>
+
+          <div class="space-y-1">
+            <For each={navItems()}>
+              {(item) => (
+                <button
+                  type="button"
+                  classList={{
+                    'bg-primary text-bg-primary': currentPath() === item.path,
+                    'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary': currentPath() !== item.path,
+                  }}
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors"
+                  onClick={() => props.navigate(item.path)}
+                >
+                  <span class={item.icon} />
+                  <span>{item.label}</span>
+                </button>
+              )}
+            </For>
+          </div>
         </div>
-        <div class="flex gap-1 mb-3">
-          <button
-            type="button"
-            classList={{
-              'bg-primary text-bg-primary': currentPath() === '/',
-              'bg-bg-tertiary text-text-secondary': currentPath() !== '/',
-            }}
-            class="flex-1 px-2 py-1 rounded text-xs font-medium transition-colors"
-            onClick={() => navigate('/')}
-          >
-            Files
-          </button>
-          <button
-            type="button"
-            classList={{
-              'bg-primary text-bg-primary': currentPath() === '/skills',
-              'bg-bg-tertiary text-text-secondary': currentPath() !== '/skills',
-            }}
-            class="flex-1 px-2 py-1 rounded text-xs font-medium transition-colors"
-            onClick={() => navigate('/skills')}
-          >
-            Skills
-          </button>
-          <button
-            type="button"
-            classList={{
-              'bg-primary text-bg-primary': currentPath() === '/workflows',
-              'bg-bg-tertiary text-text-secondary': currentPath() !== '/workflows',
-            }}
-            class="flex-1 px-2 py-1 rounded text-xs font-medium transition-colors"
-            onClick={() => navigate('/workflows')}
-          >
-            Workflows
-          </button>
-        </div>
+
         <Show when={currentPath() === '/'}>
-          <input
-            type="text"
-            placeholder="Search files..."
-            value={searchQuery()}
-            onInput={(e) => setSearchQuery(e.currentTarget.value)}
-            class="w-full px-3 py-1.5 bg-bg-primary border border-border rounded-md text-sm text-text-primary focus:outline-none focus:border-primary"
-          />
+          <div class="mt-4">
+            <input
+              type="text"
+              placeholder="Search files..."
+              value={searchQuery()}
+              onInput={(e) => setSearchQuery(e.currentTarget.value)}
+              class="w-full px-3 py-1.5 bg-bg-primary border border-border rounded-md text-sm text-text-primary focus:outline-none focus:border-primary"
+            />
+          </div>
         </Show>
       </div>
 
@@ -157,11 +166,25 @@ export default function Sidebar() {
             </Show>
           </div>
         </Show>
-        <Show when={currentPath() === '/skills'}>
-          <SkillsBrowser type="skills" onCreateFromTemplate={handleCreateFromTemplate} />
-        </Show>
-        <Show when={currentPath() === '/workflows'}>
-          <SkillsBrowser type="workflows" onCreateFromTemplate={handleCreateFromTemplate} />
+        <Show when={isAIRegistryPath()}>
+          <div class="p-4 space-y-1">
+            <For each={aiRegistryItems()}>
+              {(item) => (
+                <button
+                  type="button"
+                  classList={{
+                    'bg-primary text-bg-primary': currentPath() === item.path,
+                    'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary': currentPath() !== item.path,
+                  }}
+                  class="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors"
+                  onClick={() => props.navigate(item.path)}
+                >
+                  <span class={item.icon} />
+                  <span>{item.label}</span>
+                </button>
+              )}
+            </For>
+          </div>
         </Show>
       </nav>
 

@@ -4,7 +4,9 @@ import Preview from '@components/Preview';
 import TabBar from '@components/TabBar';
 import CommandPalette, { useCommandPalette } from '@components/CommandPalette';
 import SettingsModal, { useSettingsModal } from '@components/SettingsModal';
+import Sidebar from '@components/Sidebar';
 import { createSignal, Show, children } from 'solid-js';
+import { useNavigate, useLocation } from '@solidjs/router';
 import { useFileSystem } from '../composables/useFileSystem';
 import { useResizablePanel } from '../composables/useResizablePanel';
 import { useKeyboardShortcuts } from '../composables/useKeyboardShortcuts';
@@ -15,6 +17,8 @@ import { exportSkill, importSkill } from '../utils/exportImport';
 
 export default function MainLayout(props: any) {
   const resolved = children(() => props.children);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showPreview, setShowPreview] = createSignal(true);
   const [showAgentPanel, setShowAgentPanel] = createSignal(false);
   const { currentFile, openFile, saveFile, loading } = useFileSystem();
@@ -189,142 +193,145 @@ export default function MainLayout(props: any) {
   };
 
   return (
-    <main class="flex-1 flex flex-col overflow-hidden">
-      <header class="h-14 bg-bg-secondary border-b border-border flex items-center justify-between px-4">
-        <div class="flex items-center gap-4">
-          <h2 class="text-lg font-semibold text-text-primary">Skills</h2>
-          <span class="text-sm text-text-secondary">{currentFile()?.path || '/ my-skill.md'}</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={handleUndo}
-            disabled={!canUndo()}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors disabled:opacity-50"
-          >
-            <span class="i-lucide-undo" />
-          </button>
-          <button
-            type="button"
-            onClick={handleRedo}
-            disabled={!canRedo()}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors disabled:opacity-50"
-          >
-            <span class="i-lucide-redo" />
-          </button>
-          <button
-            type="button"
-            onClick={handleOpenFile}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
-          >
-            Open
-          </button>
-          <button
-            type="button"
-            onClick={handleImport}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
-          >
-            Import
-          </button>
-          <button
-            type="button"
-            onClick={handleExport}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
-          >
-            Export
-          </button>
-          <button
-            type="button"
-            onClick={() => setShowPreview(!showPreview())}
-            classList={{
-              'bg-primary text-bg-primary': showPreview(),
-              'bg-bg-tertiary text-text-secondary': !showPreview(),
-            }}
-            class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
-          >
-            Preview
-          </button>
-          <button
-            type="button"
-            onClick={() => setShowAgentPanel(!showAgentPanel())}
-            classList={{
-              'bg-primary text-bg-primary': showAgentPanel(),
-              'bg-bg-tertiary text-text-secondary': !showAgentPanel(),
-            }}
-            class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
-          >
-            Agents
-          </button>
-          <button
-            type="button"
-            onClick={handleSave}
-            disabled={loading()}
-            class="bg-success text-bg-primary px-3 py-1.5 rounded-md text-sm font-medium hover:bg-success/90 transition-colors disabled:opacity-50"
-          >
-            Save
-          </button>
-          <button
-            type="button"
-            onClick={openSettings}
-            class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
-          >
-            <span class="i-lucide-settings" />
-          </button>
-        </div>
-      </header>
+    <div class="flex flex-1 overflow-hidden">
+      <Sidebar navigate={navigate} currentPath={() => location.pathname} />
+      <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-14 bg-bg-secondary border-b border-border flex items-center justify-between px-4">
+          <div class="flex items-center gap-4">
+            <h2 class="text-lg font-semibold text-text-primary">Skills</h2>
+            <span class="text-sm text-text-secondary">{currentFile()?.path || '/ my-skill.md'}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleUndo}
+              disabled={!canUndo()}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors disabled:opacity-50"
+            >
+              <span class="i-lucide-undo" />
+            </button>
+            <button
+              type="button"
+              onClick={handleRedo}
+              disabled={!canRedo()}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors disabled:opacity-50"
+            >
+              <span class="i-lucide-redo" />
+            </button>
+            <button
+              type="button"
+              onClick={handleOpenFile}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
+            >
+              Open
+            </button>
+            <button
+              type="button"
+              onClick={handleImport}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
+            >
+              Import
+            </button>
+            <button
+              type="button"
+              onClick={handleExport}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
+            >
+              Export
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowPreview(!showPreview())}
+              classList={{
+                'bg-primary text-bg-primary': showPreview(),
+                'bg-bg-tertiary text-text-secondary': !showPreview(),
+              }}
+              class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+            >
+              Preview
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowAgentPanel(!showAgentPanel())}
+              classList={{
+                'bg-primary text-bg-primary': showAgentPanel(),
+                'bg-bg-tertiary text-text-secondary': !showAgentPanel(),
+              }}
+              class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+            >
+              Agents
+            </button>
+            <button
+              type="button"
+              onClick={handleSave}
+              disabled={loading()}
+              class="bg-success text-bg-primary px-3 py-1.5 rounded-md text-sm font-medium hover:bg-success/90 transition-colors disabled:opacity-50"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={openSettings}
+              class="px-3 py-1.5 rounded-md text-sm font-medium bg-bg-tertiary text-text-secondary hover:bg-bg-tertiary/80 transition-colors"
+            >
+              <span class="i-lucide-settings" />
+            </button>
+          </div>
+        </header>
 
-      <TabBar
-        tabs={tabs()}
-        activeTabId={activeTabId()}
-        onTabClick={handleTabClick}
-        onTabClose={handleTabClose}
-      />
+        <TabBar
+          tabs={tabs()}
+          activeTabId={activeTabId()}
+          onTabClick={handleTabClick}
+          onTabClose={handleTabClose}
+        />
 
-      <div class="flex-1 flex overflow-hidden" ref={editorPanel.setContainerRef}>
-        <Show when={resolved()}>
-          <div class="flex-1 overflow-auto">{resolved()}</div>
-        </Show>
+        <div class="flex-1 flex overflow-hidden" ref={editorPanel.setContainerRef}>
+          <Show when={resolved()}>
+            <div class="flex-1 overflow-auto">{resolved()}</div>
+          </Show>
 
-        <Show when={!resolved()}>
-          <div class="flex" style={{ width: `${editorPanel.size()}%` }}>
-            <Editor content={getActiveTab()?.content || ''} onContentChange={handleContentChange} />
-            <Show when={showPreview()}>
+          <Show when={!resolved()}>
+            <div class="flex" style={{ width: `${editorPanel.size()}%` }}>
+              <Editor content={getActiveTab()?.content || ''} onContentChange={handleContentChange} />
+              <Show when={showPreview()}>
+                <div
+                  class="w-1 bg-border cursor-col-resize hover:bg-primary transition-colors"
+                  onMouseDown={editorPanel.handleMouseDown}
+                />
+                <div class="flex" style={{ width: `${100 - editorPanel.size()}%` }}>
+                  <Preview content={getActiveTab()?.content || ''} />
+                </div>
+              </Show>
+            </div>
+
+            <Show when={showAgentPanel()}>
               <div
                 class="w-1 bg-border cursor-col-resize hover:bg-primary transition-colors"
-                onMouseDown={editorPanel.handleMouseDown}
+                onMouseDown={agentPanel.handleMouseDown}
               />
-              <div class="flex" style={{ width: `${100 - editorPanel.size()}%` }}>
-                <Preview content={getActiveTab()?.content || ''} />
+              <div style={{ width: `${agentPanel.size()}%` }}>
+                <AgentPanel />
               </div>
             </Show>
-          </div>
-
-          <Show when={showAgentPanel()}>
-            <div
-              class="w-1 bg-border cursor-col-resize hover:bg-primary transition-colors"
-              onMouseDown={agentPanel.handleMouseDown}
-            />
-            <div style={{ width: `${agentPanel.size()}%` }}>
-              <AgentPanel />
-            </div>
           </Show>
-        </Show>
-      </div>
+        </div>
 
-      <CommandPalette
-        commands={commands()}
-        isOpen={isCommandPaletteOpen()}
-        onClose={closeCommandPalette}
-      />
+        <CommandPalette
+          commands={commands()}
+          isOpen={isCommandPaletteOpen()}
+          onClose={closeCommandPalette}
+        />
 
-      <SettingsModal isOpen={isSettingsOpen()} onClose={closeSettings} />
+        <SettingsModal isOpen={isSettingsOpen()} onClose={closeSettings} />
 
-      <footer class="h-8 bg-bg-secondary border-t border-border flex items-center justify-between px-4">
-        <span class="text-xs text-text-secondary">{loading() ? 'Loading...' : 'Ready'}</span>
-        <span class="text-xs text-text-secondary">
-          {currentFile() ? `Modified: ${new Date().toLocaleTimeString()}` : 'No file open'}
-        </span>
-      </footer>
-    </main>
+        <footer class="h-8 bg-bg-secondary border-t border-border flex items-center justify-between px-4">
+          <span class="text-xs text-text-secondary">{loading() ? 'Loading...' : 'Ready'}</span>
+          <span class="text-xs text-text-secondary">
+            {currentFile() ? `Modified: ${new Date().toLocaleTimeString()}` : 'No file open'}
+          </span>
+        </footer>
+      </main>
+    </div>
   );
 }

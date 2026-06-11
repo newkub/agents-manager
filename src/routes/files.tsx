@@ -1,4 +1,4 @@
-import { createSignal, Show } from 'solid-js';
+import { createSignal, Show, For } from 'solid-js';
 import { useFileTree } from '../composables/useFileTree';
 import { useTabs } from '../composables/useTabs';
 
@@ -65,7 +65,7 @@ export default function FilesPage() {
           <span class="text-sm truncate">{node.name}</span>
         </button>
         <Show when={node.type === 'directory' && node.expanded && node.children}>
-          {node.children.map((child: any) => renderNode(child, level + 1))}
+          <For each={node.children}>{(child) => renderNode(child, level + 1)}</For>
         </Show>
       </div>
     );
@@ -97,7 +97,7 @@ export default function FilesPage() {
             <div class="text-sm text-text-secondary">No files found</div>
           </Show>
           <Show when={filteredTree().length > 0}>
-            {filteredTree().map((node) => renderNode(node))}
+            <For each={filteredTree()}>{(node) => renderNode(node)}</For>
           </Show>
         </Show>
       </div>
