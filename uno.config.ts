@@ -1,8 +1,17 @@
-import { defineConfig, presetIcons, presetWind } from 'unocss';
+import {
+  defineConfig,
+  presetIcons,
+  presetWind4,
+  transformerDirectives,
+  transformerVariantGroup,
+} from 'unocss';
 
 export default defineConfig({
+  content: {
+    filesystem: ['./src/**/*.{html,js,ts,jsx,tsx}'],
+  },
   presets: [
-    presetWind(),
+    presetWind4(),
     presetIcons({
       scale: 1.2,
       warn: true,
@@ -12,6 +21,7 @@ export default defineConfig({
       },
     }),
   ],
+  transformers: [transformerVariantGroup(), transformerDirectives()],
   theme: {
     colors: {
       primary: {

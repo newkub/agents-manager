@@ -1,4 +1,5 @@
 import { createSignal, For, Show } from 'solid-js';
+import { useAgentStatus } from '../composables/useAgentStatus';
 
 interface Agent {
   name: string;
@@ -15,6 +16,7 @@ const agents: Agent[] = [
 
 export default function AgentPanel() {
   const [selectedAgent, setSelectedAgent] = createSignal<string | null>(null);
+  const { agents: agentStatuses } = useAgentStatus();
 
   return (
     <aside class="w-80 bg-bg-secondary border-l border-border flex flex-col">
@@ -23,38 +25,66 @@ export default function AgentPanel() {
       </div>
 
       <div class="flex-1 overflow-y-auto p-4">
-        <div class="space-y-2">
-          <For each={agents}>
-            {(agent) => (
-              <button
-                type="button"
-                onKeyDown={(e) => e.key === 'Enter' && setSelectedAgent(agent.name)}
-                classList={{
-                  'bg-bg-tertiary border-primary': selectedAgent() === agent.name,
-                  'border-border': selectedAgent() !== agent.name,
-                }}
-                class="p-3 rounded-lg border cursor-pointer hover:bg-bg-tertiary transition-colors"
-                onClick={() => setSelectedAgent(agent.name)}
-              >
-                <div class="flex items-center gap-3">
-                  <span class={`i-${agent.icon} text-lg text-text-primary`} />
+        <div class="mb-4">
+          <h3 class="text-xs font-semibold text-text-secondary mb-2 uppercase">Real-time Status</h3>
+          <div class="space-y-2">
+            <For each={agentStatuses()}>
+              {(agent) => (
+                <div class="p-2 bg-bg-tertiary rounded-lg flex items-center gap-2">
+                  <div
+                    classList={{
+                      'bg-success': agent.status === 'completed',
+                      'bg-warning': agent.status === 'running',
+                      'bg-error': agent.status === 'error',
+                      'bg-text-secondary': agent.status === 'idle',
+                    }}
+                    class="w-2 h-2 rounded-full"
+                  />
                   <div class="flex-1">
-                    <p class="text-sm font-medium text-text-primary">{agent.name}</p>
-                    <p
-                      classList={{
-                        'text-success': agent.status === 'connected',
-                        'text-warning': agent.status === 'disconnected',
-                        'text-error': agent.status === 'not_configured',
-                      }}
-                      class="text-xs capitalize"
-                    >
-                      {agent.status.replace('_', ' ')}
-                    </p>
+                    <p class="text-xs font-medium text-text-primary">{agent.name}</p>
+                    <p class="text-xs text-text-secondary capitalize">{agent.status}</p>
                   </div>
                 </div>
-              </button>
-            )}
-          </For>
+              )}
+            </For>
+          </div>
+        </div>
+
+        <div class="border-t border-border pt-4">
+          <h3 class="text-xs font-semibold text-text-secondary mb-2 uppercase">Connected Agents</h3>
+          <div class="space-y-2">
+            <For each={agents}>
+              {(agent) => (
+                <button
+                  type="button"
+                  onKeyDown={(e) => e.key === 'Enter' && setSelectedAgent(agent.name)}
+                  classList={{
+                    'bg-bg-tertiary border-primary': selectedAgent() === agent.name,
+                    'border-border': selectedAgent() !== agent.name,
+                  }}
+                  class="p-3 rounded-lg border cursor-pointer hover:bg-bg-tertiary transition-colors"
+                  onClick={() => setSelectedAgent(agent.name)}
+                >
+                  <div class="flex items-center gap-3">
+                    <span class={`i-${agent.icon} text-lg text-text-primary`} />
+                    <div class="flex-1">
+                      <p class="text-sm font-medium text-text-primary">{agent.name}</p>
+                      <p
+                        classList={{
+                          'text-success': agent.status === 'connected',
+                          'text-warning': agent.status === 'disconnected',
+                          'text-error': agent.status === 'not_configured',
+                        }}
+                        class="text-xs capitalize"
+                      >
+                        {agent.status.replace('_', ' ')}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              )}
+            </For>
+          </div>
         </div>
 
         <Show when={selectedAgent()}>
