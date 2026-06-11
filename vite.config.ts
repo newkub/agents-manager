@@ -1,7 +1,7 @@
+import { resolve } from 'node:path';
 import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-import path from 'node:path';
 
 const host = process.env.TAURI_DEV_HOST;
 
@@ -10,11 +10,11 @@ export default defineConfig({
   clearScreen: false,
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components'),
-      '@utils': path.resolve(__dirname, './src/utils'),
-      '@stores': path.resolve(__dirname, './src/stores'),
-      '@types': path.resolve(__dirname, './src/types'),
+      '@': resolve(__dirname, './src'),
+      '@components': resolve(__dirname, './src/components'),
+      '@utils': resolve(__dirname, './src/utils'),
+      '@stores': resolve(__dirname, './src/stores'),
+      '@types': resolve(__dirname, './src/types'),
     },
   },
   server: {

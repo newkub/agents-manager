@@ -1,8 +1,6 @@
-import { A } from '@solidjs/router';
 import { createSignal, For } from 'solid-js';
 
 interface NavItem {
-  icon: string;
   label: string;
   route: string;
 }
@@ -16,17 +14,17 @@ const navSections: NavSection[] = [
   {
     title: 'Content',
     items: [
-      { icon: 'lucide-brain', label: 'Skills', route: '/skills' },
-      { icon: 'lucide-workflow', label: 'Workflows', route: '/workflows' },
-      { icon: 'lucide-cpu', label: 'MCP Servers', route: '/mcp' },
-      { icon: 'lucide-message-square', label: 'Prompts', route: '/prompts' },
+      { label: 'Skills', route: '/skills' },
+      { label: 'Workflows', route: '/workflows' },
+      { label: 'MCP Servers', route: '/mcp' },
+      { label: 'Prompts', route: '/prompts' },
     ],
   },
   {
     title: 'Configuration',
     items: [
-      { icon: 'lucide-bot', label: 'Agent Config', route: '/config' },
-      { icon: 'lucide-settings', label: 'Settings', route: '/settings' },
+      { label: 'Agent Config', route: '/config' },
+      { label: 'Settings', route: '/settings' },
     ],
   },
 ];
@@ -51,19 +49,18 @@ export default function Sidebar() {
                 <For each={section.items}>
                   {(item) => (
                     <li>
-                      <A
-                        href={item.route}
+                      <button
+                        type="button"
                         classList={{
                           'bg-bg-tertiary text-primary': activeRoute() === item.route,
                           'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary':
                             activeRoute() !== item.route,
                         }}
-                        class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors"
+                        class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors w-full text-left"
                         onClick={() => setActiveRoute(item.route)}
                       >
-                        <span class={`i-${item.icon} text-lg`} />
                         <span class="text-sm font-medium">{item.label}</span>
-                      </A>
+                      </button>
                     </li>
                   )}
                 </For>
@@ -76,7 +73,7 @@ export default function Sidebar() {
       <div class="p-4 border-t border-border">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span class="i-lucide-user text-sm" />
+            <span class="text-sm font-bold">U</span>
           </div>
           <div class="flex-1">
             <p class="text-sm font-medium text-text-primary">User</p>

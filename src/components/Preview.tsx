@@ -1,7 +1,7 @@
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
-import { createSignal, onMount, createEffect } from 'solid-js';
+import { createEffect, createSignal } from 'solid-js';
 
 interface PreviewProps {
   content?: string;
@@ -22,7 +22,9 @@ export default function Preview(props: PreviewProps) {
       gfm: true,
     });
 
-    const markdown = props.content || `---
+    const markdown =
+      props.content ||
+      `---
 title: My Skill
 description: A useful skill for agents
 category: utility

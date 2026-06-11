@@ -1,9 +1,11 @@
-import { createSignal } from 'solid-js';
-import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
 import { open, save } from '@tauri-apps/plugin-dialog';
+import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
+import { createSignal } from 'solid-js';
 
 export function useFileSystem() {
-  const [currentFile, setCurrentFile] = createSignal<{ path: string; content: string; } | null>(null);
+  const [currentFile, setCurrentFile] = createSignal<{ path: string; content: string } | null>(
+    null
+  );
   const [loading, setLoading] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
 

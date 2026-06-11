@@ -13,7 +13,7 @@ export default function MainLayout() {
   const handleOpenFile = async () => {
     await openFile();
     if (currentFile()) {
-      setEditorContent(currentFile()!.content);
+      setEditorContent(currentFile()?.content);
     }
   };
 
@@ -33,9 +33,7 @@ export default function MainLayout() {
       <header class="h-14 bg-bg-secondary border-b border-border flex items-center justify-between px-4">
         <div class="flex items-center gap-4">
           <h2 class="text-lg font-semibold text-text-primary">Skills</h2>
-          <span class="text-sm text-text-secondary">
-            {currentFile()?.path || '/ my-skill.md'}
-          </span>
+          <span class="text-sm text-text-secondary">{currentFile()?.path || '/ my-skill.md'}</span>
         </div>
         <div class="flex items-center gap-2">
           <button
@@ -92,9 +90,7 @@ export default function MainLayout() {
       </div>
 
       <footer class="h-8 bg-bg-secondary border-t border-border flex items-center justify-between px-4">
-        <span class="text-xs text-text-secondary">
-          {loading() ? 'Loading...' : 'Ready'}
-        </span>
+        <span class="text-xs text-text-secondary">{loading() ? 'Loading...' : 'Ready'}</span>
         <span class="text-xs text-text-secondary">
           {currentFile() ? `Modified: ${new Date().toLocaleTimeString()}` : 'No file open'}
         </span>
