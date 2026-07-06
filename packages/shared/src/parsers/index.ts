@@ -20,7 +20,10 @@ async function findMarkdownFiles(dir: string): Promise<string[]> {
   return results;
 }
 
-function parseFrontmatter(content: string): { frontmatter: Record<string, string>; body: string } {
+export function parseFrontmatter(content: string): {
+  frontmatter: Record<string, string>;
+  body: string;
+} {
   const fmMatch = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!fmMatch) return { frontmatter: {}, body: content };
 
