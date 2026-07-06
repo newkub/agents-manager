@@ -41,7 +41,7 @@ export function App() {
             <div class="flex-1 flex items-center justify-center text-text-secondary">
               <Show when={!state.loading()} fallback={<div>Loading...</div>}>
                 <div class="text-center">
-                  <span class="i-lucide-mouse-pointer-click text-4xl block mb-2" />
+                  <span class="text-4xl block mb-2">👆</span>
                   <p>Select an item from the sidebar</p>
                 </div>
               </Show>

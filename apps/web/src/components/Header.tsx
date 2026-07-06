@@ -14,7 +14,7 @@ export function Header(props: HeaderProps) {
   return (
     <header class="h-14 bg-bg-secondary border-b border-border flex items-center px-4 gap-4">
       <div class="flex items-center gap-2">
-        <span class="i-lucide-bot text-xl text-primary" />
+        <span class="text-xl text-primary">🤖</span>
         <span class="font-bold text-text-primary">Agents Manager</span>
       </div>
       <nav class="flex items-center gap-1 ml-4">
@@ -45,7 +45,7 @@ export function Header(props: HeaderProps) {
           rel="noopener noreferrer"
           class="text-xs text-text-secondary hover:text-primary flex items-center gap-1"
         >
-          <span class="i-lucide-palette" />
+          <span>🎨</span>
           Shiki
         </a>
       </div>

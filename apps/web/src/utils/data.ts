@@ -29,7 +29,7 @@ export const TYPE_LABELS: Record<ItemType, string> = {
 };
 
 export const TYPE_ICONS: Record<ItemType, string> = {
-  skills: 'i-lucide-file-code',
-  workflows: 'i-lucide-workflow',
-  mcp: 'i-lucide-server',
+  skills: '📄',
+  workflows: '🔄',
+  mcp: '🖥️',
 };
