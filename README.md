@@ -11,15 +11,15 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Goal | Status | Description |
 |------|------|--------|-------------|
-| 🎯 | Visualize agent resources | ✓ Goal | Display skills, workflows, and MCP servers in an interactive web UI |
-| 📁 | Parse markdown files | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
-| 🔍 | Search and filter | ✓ Goal | Enable quick search across all resources |
-| 🌐 | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
-| 📦 | Monorepo structure | ✓ Goal | Shared types and parsers across all apps |
-| 🔄 | Real-time updates | ✓ Goal | Hot module replacement during development |
-| 🎨 | Syntax highlighting | ✓ Goal | Code blocks highlighted with Shiki |
-| 🔐 | Authentication | ✗ Not Goal | No user authentication required |
-| 💾 | Database | ✗ Not Goal | File-based data only, no database |
+| ![target](https://api.iconify.design/mdi:target.svg) | Visualize agent resources | ✓ Goal | Display skills, workflows, and MCP servers in an interactive web UI |
+| ![folder](https://api.iconify.design/mdi:folder.svg) | Parse markdown files | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
+| ![search](https://api.iconify.design/mdi:magnify.svg) | Search and filter | ✓ Goal | Enable quick search across all resources |
+| ![web](https://api.iconify.design/mdi:web.svg) | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
+| ![package](https://api.iconify.design/mdi:package-variant.svg) | Monorepo structure | ✓ Goal | Shared types and parsers across all apps |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Real-time updates | ✓ Goal | Hot module replacement during development |
+| ![highlight](https://api.iconify.design/mdi:code-braces.svg) | Syntax highlighting | ✓ Goal | Code blocks highlighted with Shiki |
+| ![lock](https://api.iconify.design/mdi:lock.svg) | Authentication | ✗ Not Goal | No user authentication required |
+| ![database](https://api.iconify.design/mdi:database-off.svg) | Database | ✗ Not Goal | File-based data only, no database |
 
 </details>
 
@@ -27,16 +27,16 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Scope | Status | Description |
 |------|-------|--------|-------------|
-| 📄 | Skills management | ✓ In Scope | Parse and display skill markdown files |
-| 🔄 | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
-| 🖥️ | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
-| 🔍 | Search functionality | ✓ In Scope | Filter resources by name and description |
-| 🌐 | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
-| 💻 | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
-| 🪟 | Desktop app | ✓ In Scope | Native desktop app via Tauri |
-| 📝 | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
-| 🤖 | AI integration | ✗ Out of Scope | No AI features, just visualization |
-| 📊 | Analytics | ✗ Out of Scope | No usage tracking or analytics |
+| ![file](https://api.iconify.design/mdi:file-document.svg) | Skills management | ✓ In Scope | Parse and display skill markdown files |
+| ![workflow](https://api.iconify.design/mdi:sitemap.svg) | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
+| ![server](https://api.iconify.design/mdi:server.svg) | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
+| ![search](https://api.iconify.design/mdi:magnify.svg) | Search functionality | ✓ In Scope | Filter resources by name and description |
+| ![web](https://api.iconify.design/mdi:web.svg) | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
+| ![cli](https://api.iconify.design/mdi:console.svg) | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop app | ✓ In Scope | Native desktop app via Tauri |
+| ![edit](https://api.iconify.design/mdi:pencil-off.svg) | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
+| ![robot](https://api.iconify.design/mdi:robot-off.svg) | AI integration | ✗ Out of Scope | No AI features, just visualization |
+| ![chart](https://api.iconify.design/mdi:chart-off.svg) | Analytics | ✗ Out of Scope | No usage tracking or analytics |
 
 </details>
 
@@ -44,14 +44,14 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Concept | Description |
 |------|---------|-------------|
-| 📦 | Monorepo | Turborepo-managed workspace with shared packages |
-| 📄 | Frontmatter | YAML metadata in markdown files for resource properties |
-| 🔧 | Type Safety | TypeScript with Zod validation for runtime checks |
-| 🎨 | UnoCSS | Utility-first CSS framework for styling |
-| 🌈 | Shiki | Syntax highlighter for code blocks |
-| 🧹 | DOMPurify | HTML sanitizer for markdown rendering |
-| 🪝 | Git Hooks | Lefthook for pre-commit and pre-push checks |
-| 🔍 | AST-based Linting | ast-grep for structural code analysis |
+| ![package](https://api.iconify.design/mdi:package-variant.svg) | Monorepo | Turborepo-managed workspace with shared packages |
+| ![file](https://api.iconify.design/mdi:file-document.svg) | Frontmatter | YAML metadata in markdown files for resource properties |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Type Safety | TypeScript with Zod validation for runtime checks |
+| ![palette](https://api.iconify.design/mdi:palette.svg) | UnoCSS | Utility-first CSS framework for styling |
+| ![shiki](https://api.iconify.design/mdi:language-html.svg) | Shiki | Syntax highlighter for code blocks |
+| ![broom](https://api.iconify.design/mdi:broom.svg) | DOMPurify | HTML sanitizer for markdown rendering |
+| ![hook](https://api.iconify.design/mdi:hook.svg) | Git Hooks | Lefthook for pre-commit and pre-push checks |
+| ![ast](https://api.iconify.design/mdi:file-tree.svg) | AST-based Linting | ast-grep for structural code analysis |
 
 </details>
 
@@ -59,14 +59,14 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Principle | Description |
 |------|-----------|-------------|
-| 🎯 | Type Safety | Use TypeScript strict mode, avoid `any` types |
-| 🧹 | Code Quality | Biome linting and formatting for consistency |
-| 🔄 | Hot Reload | Fast development with HMR in all apps |
-| 📦 | Shared Code | Common types and parsers in shared package |
-| 🧪 | Testing | Vitest for unit tests, placeholder tests for MVP |
-| 🔐 | Security | Sanitize all HTML content with DOMPurify |
-| 📝 | Documentation | Comprehensive README and inline comments |
-| 🚀 | Performance | Fast builds with Vite and Turborepo caching |
+| ![target](https://api.iconify.design/mdi:target.svg) | Type Safety | Use TypeScript strict mode, avoid `any` types |
+| ![broom](https://api.iconify.design/mdi:broom.svg) | Code Quality | Biome linting and formatting for consistency |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Hot Reload | Fast development with HMR in all apps |
+| ![package](https://api.iconify.design/mdi:package-variant.svg) | Shared Code | Common types and parsers in shared package |
+| ![flask](https://api.iconify.design/mdi:flask.svg) | Testing | Vitest for unit tests, placeholder tests for MVP |
+| ![lock](https://api.iconify.design/mdi:lock.svg) | Security | Sanitize all HTML content with DOMPurify |
+| ![doc](https://api.iconify.design/mdi:file-document-edit.svg) | Documentation | Comprehensive README and inline comments |
+| ![rocket](https://api.iconify.design/mdi:rocket.svg) | Performance | Fast builds with Vite and Turborepo caching |
 
 </details>
 
@@ -74,12 +74,12 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Use Case | Description |
 |------|----------|-------------|
-| 🔍 | Browse resources | When you need to find and view skills/workflows/MCP servers |
-| 📂 | Custom directories | When scanning non-standard directory paths |
-| 🌐 | Web preview | When you want a browser-based visualization |
-| 💻 | CLI workflow | When you prefer command-line interface |
-| 🪟 | Desktop app | When you want a native desktop experience |
-| 📖 | Documentation | When learning about available agent resources |
+| ![search](https://api.iconify.design/mdi:magnify.svg) | Browse resources | When you need to find and view skills/workflows/MCP servers |
+| ![folder](https://api.iconify.design/mdi:folder-open.svg) | Custom directories | When scanning non-standard directory paths |
+| ![web](https://api.iconify.design/mdi:web.svg) | Web preview | When you want a browser-based visualization |
+| ![cli](https://api.iconify.design/mdi:console.svg) | CLI workflow | When you prefer command-line interface |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop app | When you want a native desktop experience |
+| ![book](https://api.iconify.design/mdi:book-open-variant.svg) | Documentation | When learning about available agent resources |
 
 </details>
 
@@ -87,13 +87,13 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Practice | Description |
 |------|----------|-------------|
-| 📝 | Frontmatter | Always include title and description in markdown files |
-| 🏷️ | Tags | Use tags for better categorization and search |
-| 🎨 | Consistent styling | Follow UnoCSS utility classes patterns |
-| 🔧 | Type safety | Use Zod schemas for all data validation |
-| 🧪 | Test coverage | Write tests for parsers and utilities |
-| 📦 | Shared code | Put common logic in shared package |
-| 🔄 | Git hooks | Never bypass Lefthook hooks |
+| ![doc](https://api.iconify.design/mdi:file-document-edit.svg) | Frontmatter | Always include title and description in markdown files |
+| ![tag](https://api.iconify.design/mdi:tag.svg) | Tags | Use tags for better categorization and search |
+| ![palette](https://api.iconify.design/mdi:palette.svg) | Consistent styling | Follow UnoCSS utility classes patterns |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Type safety | Use Zod schemas for all data validation |
+| ![flask](https://api.iconify.design/mdi:flask.svg) | Test coverage | Write tests for parsers and utilities |
+| ![package](https://api.iconify.design/mdi:package-variant.svg) | Shared code | Put common logic in shared package |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Git hooks | Never bypass Lefthook hooks |
 
 </details>
 
@@ -101,25 +101,21 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 
 | Icon | Feature | Description | Benefit | Usage |
 |------|---------|-------------|---------|-------|
-| 📄 | Skills Visualization | Display all skills with metadata | Quick overview of available skills | `agents-manager skills` |
-| 🔄 | Workflows Visualization | Display all workflows with metadata | Understand workflow patterns | `agents-manager workflows` |
-| 🖥️ | MCP Servers Visualization | Display MCP servers with tools | See available MCP tools | `agents-manager mcp` |
-| 🔍 | Search & Filter | Search by name and description | Find resources quickly | Type in search box |
-| 📖 | Markdown Preview | Rendered markdown with syntax highlighting | Read formatted content | Click any item |
-| 🎨 | Syntax Highlighting | Code blocks highlighted with Shiki | Better code readability | Auto-applied |
-| 🏷️ | Tag Filtering | Filter resources by tags | Narrow down by category | Click tags |
-| 📂 | Custom Directories | Scan any directory path | Work with non-standard locations | `--dir=<path>` |
-| 🌐 | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
-| 💻 | CLI Interface | Command-line tool | Scriptable and fast | `agents-manager <command>` |
-| 🪟 | Desktop App | Native desktop experience | Standalone application | `bun --filter @agents-manager/desktop dev` |
-| 🔄 | Hot Reload | Instant updates during development | Faster iteration | Auto-enabled in dev |
-| 🧹 | HTML Sanitization | DOMPurify for security | Safe markdown rendering | Auto-applied |
+| ![file](https://api.iconify.design/mdi:file-document.svg) | Skills Visualization | Display all skills with metadata | Quick overview of available skills | `agents-manager skills` |
+| ![workflow](https://api.iconify.design/mdi:sitemap.svg) | Workflows Visualization | Display all workflows with metadata | Understand workflow patterns | `agents-manager workflows` |
+| ![server](https://api.iconify.design/mdi:server.svg) | MCP Servers Visualization | Display MCP servers with tools | See available MCP tools | `agents-manager mcp` |
+| ![search](https://api.iconify.design/mdi:magnify.svg) | Search & Filter | Search by name and description | Find resources quickly | Type in search box |
+| ![book](https://api.iconify.design/mdi:book-open-variant.svg) | Markdown Preview | Rendered markdown with syntax highlighting | Read formatted content | Click any item |
+| ![palette](https://api.iconify.design/mdi:palette.svg) | Syntax Highlighting | Code blocks highlighted with Shiki | Better code readability | Auto-applied |
+| ![tag](https://api.iconify.design/mdi:tag.svg) | Tag Filtering | Filter resources by tags | Narrow down by category | Click tags |
+| ![folder](https://api.iconify.design/mdi:folder-open.svg) | Custom Directories | Scan any directory path | Work with non-standard locations | `--dir=<path>` |
+| ![web](https://api.iconify.design/mdi:web.svg) | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
+| ![cli](https://api.iconify.design/mdi:console.svg) | CLI Interface | Command-line tool | Scriptable and fast | `agents-manager <command>` |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop App | Native desktop experience | Standalone application | `bun --filter @agents-manager/desktop dev` |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Hot Reload | Instant updates during development | Faster iteration | Auto-enabled in dev |
+| ![broom](https://api.iconify.design/mdi:broom.svg) | HTML Sanitization | DOMPurify for security | Safe markdown rendering | Auto-applied |
 
 ## Quick Start
-
-<table>
-<tr>
-<td width="50%" valign="top">
 
 1. **Install Dependencies** — `terminal`
    Install all dependencies for the monorepo
@@ -151,11 +147,6 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
    bun --filter @agents-manager/desktop dev
    ```
 
-</td>
-<td width="50%" valign="top">
-
-<p align="center">Preview shows the CLI launching a web server with real data from your directory.</p>
-
 ```ansi
 ┌─────────────────────────────────────┐
 │  Agents Manager - WORKFLOWS        │
@@ -164,21 +155,13 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 │  Items found: 45                   │
 │  Press Ctrl+C to stop               │
 │                                     │
-│  📂 Scanning directory...           │
-│  ✅ Found 45 workflow files         │
-│  🌐 Opening browser...              │
+│  Scanning directory...              │
+│  Found 45 workflow files            │
+│  Opening browser...                 │
 └─────────────────────────────────────┘
 ```
 
-</td>
-</tr>
-</table>
-
 ## Usage
-
-<table>
-<tr>
-<td width="50%" valign="top">
 
 ### CLI Commands
 
@@ -235,11 +218,6 @@ bun --filter @agents-manager/desktop dev
 bun --filter @agents-manager/desktop build
 ```
 
-</td>
-<td width="50%" valign="top">
-
-<p align="center">CLI provides quick access to visualization with auto browser launch.</p>
-
 ```ansi
 $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflows"
 
@@ -248,18 +226,14 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
   Items found: 45
   Press Ctrl+C to stop
 
-  📂 Scanning C:\Users\user\.codeium\windsurf\global_workflows
-  ✅ Found 45 workflow files
-  🌐 Opening browser...
+  Scanning C:\Users\user\.codeium\windsurf\global_workflows
+  Found 45 workflow files
+  Opening browser...
 
   [Browser opens at http://localhost:4321]
   [Sidebar shows 45 workflows]
   [Click any workflow to view details]
 ```
-
-</td>
-</tr>
-</table>
 
 ## API References
 
