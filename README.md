@@ -5,116 +5,6 @@
 
 A monorepo application for visualizing and managing AI agent skills, workflows, and MCP servers with real-time markdown preview and syntax highlighting.
 
-## Project
-
-<details><summary>Goal</summary>
-
-| Icon | Goal | Status | Description |
-|------|------|--------|-------------|
-| ![target](https://api.iconify.design/mdi:target.svg) | Visualize agent resources | ✓ Goal | Display skills, workflows, and MCP servers in an interactive web UI |
-| ![folder](https://api.iconify.design/mdi:folder.svg) | Parse markdown files | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Search and filter | ✓ Goal | Enable quick search across all resources |
-| ![web](https://api.iconify.design/mdi:web.svg) | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Monorepo structure | ✓ Goal | Shared types and parsers across all apps |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Real-time updates | ✓ Goal | Hot module replacement during development |
-| ![highlight](https://api.iconify.design/mdi:code-braces.svg) | Syntax highlighting | ✓ Goal | Code blocks highlighted with Shiki |
-| ![lock](https://api.iconify.design/mdi:lock.svg) | Authentication | ✗ Not Goal | No user authentication required |
-| ![database](https://api.iconify.design/mdi:database-off.svg) | Database | ✗ Not Goal | File-based data only, no database |
-
-</details>
-
-<details><summary>Scope</summary>
-
-| Icon | Scope | Status | Description |
-|------|-------|--------|-------------|
-| ![file](https://api.iconify.design/mdi:file-document.svg) | Skills management | ✓ In Scope | Parse and display skill markdown files |
-| ![workflow](https://api.iconify.design/mdi:sitemap.svg) | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
-| ![server](https://api.iconify.design/mdi:server.svg) | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Search functionality | ✓ In Scope | Filter resources by name and description |
-| ![web](https://api.iconify.design/mdi:web.svg) | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
-| ![cli](https://api.iconify.design/mdi:console.svg) | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop app | ✓ In Scope | Native desktop app via Tauri |
-| ![edit](https://api.iconify.design/mdi:pencil-off.svg) | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
-| ![robot](https://api.iconify.design/mdi:robot-off.svg) | AI integration | ✗ Out of Scope | No AI features, just visualization |
-| ![chart](https://api.iconify.design/mdi:chart-off.svg) | Analytics | ✗ Out of Scope | No usage tracking or analytics |
-
-</details>
-
-<details><summary>Key Concepts</summary>
-
-| Icon | Concept | Description |
-|------|---------|-------------|
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Monorepo | Turborepo-managed workspace with shared packages |
-| ![file](https://api.iconify.design/mdi:file-document.svg) | Frontmatter | YAML metadata in markdown files for resource properties |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Type Safety | TypeScript with Zod validation for runtime checks |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | UnoCSS | Utility-first CSS framework for styling |
-| ![shiki](https://api.iconify.design/mdi:language-html.svg) | Shiki | Syntax highlighter for code blocks |
-| ![broom](https://api.iconify.design/mdi:broom.svg) | DOMPurify | HTML sanitizer for markdown rendering |
-| ![hook](https://api.iconify.design/mdi:hook.svg) | Git Hooks | Lefthook for pre-commit and pre-push checks |
-| ![ast](https://api.iconify.design/mdi:file-tree.svg) | AST-based Linting | ast-grep for structural code analysis |
-
-</details>
-
-<details><summary>Core Principles</summary>
-
-| Icon | Principle | Description |
-|------|-----------|-------------|
-| ![target](https://api.iconify.design/mdi:target.svg) | Type Safety | Use TypeScript strict mode, avoid `any` types |
-| ![broom](https://api.iconify.design/mdi:broom.svg) | Code Quality | Biome linting and formatting for consistency |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Hot Reload | Fast development with HMR in all apps |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Shared Code | Common types and parsers in shared package |
-| ![flask](https://api.iconify.design/mdi:flask.svg) | Testing | Vitest for unit tests, placeholder tests for MVP |
-| ![lock](https://api.iconify.design/mdi:lock.svg) | Security | Sanitize all HTML content with DOMPurify |
-| ![doc](https://api.iconify.design/mdi:file-document-edit.svg) | Documentation | Comprehensive README and inline comments |
-| ![rocket](https://api.iconify.design/mdi:rocket.svg) | Performance | Fast builds with Vite and Turborepo caching |
-
-</details>
-
-<details><summary>When To Use</summary>
-
-| Icon | Use Case | Description |
-|------|----------|-------------|
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Browse resources | When you need to find and view skills/workflows/MCP servers |
-| ![folder](https://api.iconify.design/mdi:folder-open.svg) | Custom directories | When scanning non-standard directory paths |
-| ![web](https://api.iconify.design/mdi:web.svg) | Web preview | When you want a browser-based visualization |
-| ![cli](https://api.iconify.design/mdi:console.svg) | CLI workflow | When you prefer command-line interface |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop app | When you want a native desktop experience |
-| ![book](https://api.iconify.design/mdi:book-open-variant.svg) | Documentation | When learning about available agent resources |
-
-</details>
-
-<details><summary>Best Practices</summary>
-
-| Icon | Practice | Description |
-|------|----------|-------------|
-| ![doc](https://api.iconify.design/mdi:file-document-edit.svg) | Frontmatter | Always include title and description in markdown files |
-| ![tag](https://api.iconify.design/mdi:tag.svg) | Tags | Use tags for better categorization and search |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Consistent styling | Follow UnoCSS utility classes patterns |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Type safety | Use Zod schemas for all data validation |
-| ![flask](https://api.iconify.design/mdi:flask.svg) | Test coverage | Write tests for parsers and utilities |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Shared code | Put common logic in shared package |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Git hooks | Never bypass Lefthook hooks |
-
-</details>
-
-## Features
-
-| Icon | Feature | Description | Benefit | Usage |
-|------|---------|-------------|---------|-------|
-| ![file](https://api.iconify.design/mdi:file-document.svg) | Skills Visualization | Display all skills with metadata | Quick overview of available skills | `agents-manager skills` |
-| ![workflow](https://api.iconify.design/mdi:sitemap.svg) | Workflows Visualization | Display all workflows with metadata | Understand workflow patterns | `agents-manager workflows` |
-| ![server](https://api.iconify.design/mdi:server.svg) | MCP Servers Visualization | Display MCP servers with tools | See available MCP tools | `agents-manager mcp` |
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Search & Filter | Search by name and description | Find resources quickly | Type in search box |
-| ![book](https://api.iconify.design/mdi:book-open-variant.svg) | Markdown Preview | Rendered markdown with syntax highlighting | Read formatted content | Click any item |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Syntax Highlighting | Code blocks highlighted with Shiki | Better code readability | Auto-applied |
-| ![tag](https://api.iconify.design/mdi:tag.svg) | Tag Filtering | Filter resources by tags | Narrow down by category | Click tags |
-| ![folder](https://api.iconify.design/mdi:folder-open.svg) | Custom Directories | Scan any directory path | Work with non-standard locations | `--dir=<path>` |
-| ![web](https://api.iconify.design/mdi:web.svg) | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
-| ![cli](https://api.iconify.design/mdi:console.svg) | CLI Interface | Command-line tool | Scriptable and fast | `agents-manager <command>` |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg) | Desktop App | Native desktop experience | Standalone application | `bun --filter @agents-manager/desktop dev` |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg) | Hot Reload | Instant updates during development | Faster iteration | Auto-enabled in dev |
-| ![broom](https://api.iconify.design/mdi:broom.svg) | HTML Sanitization | DOMPurify for security | Safe markdown rendering | Auto-applied |
-
 ## Quick Start
 
 1. **Install Dependencies** — `terminal`
@@ -160,6 +50,24 @@ A monorepo application for visualizing and managing AI agent skills, workflows, 
 │  Opening browser...                 │
 └─────────────────────────────────────┘
 ```
+
+## Features
+
+| Icon | Feature | Description | Benefit | Usage |
+| :---: |---------|-------------|---------|-------|
+| ![file](https://api.iconify.design/mdi:file-document.svg?color=1976d2) | Skills Visualization | Display all skills with metadata | Quick overview of available skills | `agents-manager skills` |
+| ![workflow](https://api.iconify.design/mdi:sitemap.svg?color=7b1fa2) | Workflows Visualization | Display all workflows with metadata | Understand workflow patterns | `agents-manager workflows` |
+| ![server](https://api.iconify.design/mdi:server.svg?color=00796b) | MCP Servers Visualization | Display MCP servers with tools | See available MCP tools | `agents-manager mcp` |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Search & Filter | Search by name and description | Find resources quickly | Type in search box |
+| ![book](https://api.iconify.design/mdi:book-open-variant.svg?color=303f9f) | Markdown Preview | Rendered markdown with syntax highlighting | Read formatted content | Click any item |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | Syntax Highlighting | Code blocks highlighted with Shiki | Better code readability | Auto-applied |
+| ![tag](https://api.iconify.design/mdi:tag.svg?color=0097a7) | Tag Filtering | Filter resources by tags | Narrow down by category | Click tags |
+| ![folder](https://api.iconify.design/mdi:folder-open.svg?color=388e3c) | Custom Directories | Scan any directory path | Work with non-standard locations | `--dir=<path>` |
+| ![web](https://api.iconify.design/mdi:web.svg?color=1976d2) | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
+| ![cli](https://api.iconify.design/mdi:console.svg?color=ffa000) | CLI Interface | Command-line tool | Scriptable and fast | `agents-manager <command>` |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=303f9f) | Desktop App | Native desktop experience | Standalone application | `bun --filter @agents-manager/desktop dev` |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=00796b) | Hot Reload | Instant updates during development | Faster iteration | Auto-enabled in dev |
+| ![broom](https://api.iconify.design/mdi:broom.svg?color=d32f2f) | HTML Sanitization | DOMPurify for security | Safe markdown rendering | Auto-applied |
 
 ## Usage
 
@@ -234,6 +142,98 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
   [Sidebar shows 45 workflows]
   [Click any workflow to view details]
 ```
+
+## Project
+
+<details><summary>Goal</summary>
+
+| Icon | Goal | Status | Description |
+| :---: |------|--------|-------------|
+| ![target](https://api.iconify.design/mdi:target.svg?color=1976d2) | Visualize agent resources | ✓ Goal | Display skills, workflows, and MCP servers in an interactive web UI |
+| ![folder](https://api.iconify.design/mdi:folder.svg?color=ffa000) | Parse markdown files | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=00796b) | Search and filter | ✓ Goal | Enable quick search across all resources |
+| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Monorepo structure | ✓ Goal | Shared types and parsers across all apps |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=388e3c) | Real-time updates | ✓ Goal | Hot module replacement during development |
+| ![highlight](https://api.iconify.design/mdi:code-braces.svg?color=c2185b) | Syntax highlighting | ✓ Goal | Code blocks highlighted with Shiki |
+| ![lock](https://api.iconify.design/mdi:lock.svg?color=d32f2f) | Authentication | ✗ Not Goal | No user authentication required |
+| ![database](https://api.iconify.design/mdi:database-off.svg?color=d32f2f) | Database | ✗ Not Goal | File-based data only, no database |
+
+</details>
+
+<details><summary>Scope</summary>
+
+| Icon | Scope | Status | Description |
+| :---: |-------|--------|-------------|
+| ![file](https://api.iconify.design/mdi:file-document.svg?color=1976d2) | Skills management | ✓ In Scope | Parse and display skill markdown files |
+| ![workflow](https://api.iconify.design/mdi:sitemap.svg?color=7b1fa2) | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
+| ![server](https://api.iconify.design/mdi:server.svg?color=00796b) | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Search functionality | ✓ In Scope | Filter resources by name and description |
+| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
+| ![cli](https://api.iconify.design/mdi:console.svg?color=0097a7) | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=388e3c) | Desktop app | ✓ In Scope | Native desktop app via Tauri |
+| ![edit](https://api.iconify.design/mdi:pencil-off.svg?color=d32f2f) | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
+| ![robot](https://api.iconify.design/mdi:robot-off.svg?color=d32f2f) | AI integration | ✗ Out of Scope | No AI features, just visualization |
+| ![chart](https://api.iconify.design/mdi:chart-off.svg?color=d32f2f) | Analytics | ✗ Out of Scope | No usage tracking or analytics |
+
+</details>
+
+<details><summary>Key Concepts</summary>
+
+| Icon | Concept | Description |
+| :---: |---------|-------------|
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Monorepo | Turborepo-managed workspace with shared packages |
+| ![file](https://api.iconify.design/mdi:file-document.svg?color=ffa000) | Frontmatter | YAML metadata in markdown files for resource properties |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=1976d2) | Type Safety | TypeScript with Zod validation for runtime checks |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | UnoCSS | Utility-first CSS framework for styling |
+| ![shiki](https://api.iconify.design/mdi:language-html.svg?color=00796b) | Shiki | Syntax highlighter for code blocks |
+| ![broom](https://api.iconify.design/mdi:broom.svg?color=388e3c) | DOMPurify | HTML sanitizer for markdown rendering |
+| ![hook](https://api.iconify.design/mdi:hook.svg?color=303f9f) | Git Hooks | Lefthook for pre-commit and pre-push checks |
+| ![ast](https://api.iconify.design/mdi:file-tree.svg?color=0097a7) | AST-based Linting | ast-grep for structural code analysis |
+
+</details>
+
+<details><summary>Core Principles</summary>
+
+| Icon | Principle | Description |
+| :---: |-----------|-------------|
+| ![target](https://api.iconify.design/mdi:target.svg?color=1976d2) | Type Safety | Use TypeScript strict mode, avoid `any` types |
+| ![broom](https://api.iconify.design/mdi:broom.svg?color=388e3c) | Code Quality | Biome linting and formatting for consistency |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=00796b) | Hot Reload | Fast development with HMR in all apps |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Shared Code | Common types and parsers in shared package |
+| ![flask](https://api.iconify.design/mdi:flask.svg?color=c2185b) | Testing | Vitest for unit tests, placeholder tests for MVP |
+| ![lock](https://api.iconify.design/mdi:lock.svg?color=d32f2f) | Security | Sanitize all HTML content with DOMPurify |
+| ![doc](https://api.iconify.design/mdi:file-document-edit.svg?color=ffa000) | Documentation | Comprehensive README and inline comments |
+| ![rocket](https://api.iconify.design/mdi:rocket.svg?color=303f9f) | Performance | Fast builds with Vite and Turborepo caching |
+
+</details>
+
+<details><summary>When To Use</summary>
+
+| Icon | Use Case | Description |
+| :---: |----------|-------------|
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Browse resources | When you need to find and view skills/workflows/MCP servers |
+| ![folder](https://api.iconify.design/mdi:folder-open.svg?color=1976d2) | Custom directories | When scanning non-standard directory paths |
+| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Web preview | When you want a browser-based visualization |
+| ![cli](https://api.iconify.design/mdi:console.svg?color=0097a7) | CLI workflow | When you prefer command-line interface |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=00796b) | Desktop app | When you want a native desktop experience |
+| ![book](https://api.iconify.design/mdi:book-open-variant.svg?color=7b1fa2) | Documentation | When learning about available agent resources |
+
+</details>
+
+<details><summary>Best Practices</summary>
+
+| Icon | Practice | Description |
+| :---: |----------|-------------|
+| ![doc](https://api.iconify.design/mdi:file-document-edit.svg?color=ffa000) | Frontmatter | Always include title and description in markdown files |
+| ![tag](https://api.iconify.design/mdi:tag.svg?color=c2185b) | Tags | Use tags for better categorization and search |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=7b1fa2) | Consistent styling | Follow UnoCSS utility classes patterns |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=1976d2) | Type safety | Use Zod schemas for all data validation |
+| ![flask](https://api.iconify.design/mdi:flask.svg?color=388e3c) | Test coverage | Write tests for parsers and utilities |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=00796b) | Shared code | Put common logic in shared package |
+| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=303f9f) | Git hooks | Never bypass Lefthook hooks |
+
+</details>
 
 ## API References
 
