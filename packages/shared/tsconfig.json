@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["bun-types"],
+    "paths": {
+      "@agents-manager/shared": ["./src/index.ts"],
+      "@agents-manager/shared/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

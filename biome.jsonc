@@ -11,7 +11,9 @@
       "**",
       "!**/node_modules",
       "!**/dist",
+      "!**/dist-ssr",
       "!**/src-tauri/target",
+      "!**/src-tauri/gen",
       "!**/coverage"
     ]
   },
@@ -32,28 +34,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "a11y": {
-        "recommended": true
-      },
-      "complexity": {
-        "recommended": true
-      },
-      "correctness": {
-        "recommended": true
-      },
-      "performance": {
-        "recommended": true
-      },
-      "security": {
-        "recommended": true
-      },
-      "style": {
-        "recommended": true
-      },
-      "suspicious": {
-        "recommended": true
-      }
+      "recommended": true
     }
   },
   "javascript": {

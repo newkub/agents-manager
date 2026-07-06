@@ -1,0 +1,22 @@
+assert_lefthook_installed: true
+min_version: 1.13.6
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{ts,tsx,js,jsx}"
+      run: bunx biome lint --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    format:
+      glob: "*.{ts,tsx,js,jsx,json,jsonc,md}"
+      run: bunx biome format --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  commands:
+    typecheck:
+      run: bun run typecheck
+    test:
+      run: bun run test

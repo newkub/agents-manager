@@ -7,8 +7,8 @@ dist/
 dist-ssr/
 
 # Tauri
-src-tauri/target/
-src-tauri/gen/
+**/src-tauri/target/
+**/src-tauri/gen/
 
 # IDE
 .vscode/
@@ -31,3 +31,9 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# Coverage
+coverage/
+
+# Turbo
+.turbo/

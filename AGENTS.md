@@ -1,35 +1,34 @@
 # AGENTS.md
 
-Project-specific configuration for Cascade AI agent.
+## Project
 
-## Custom Rules
+- Project Type: `monorepo`
+- Package Manager: `Bun`
+- Runtime: `Bun`
+- Language: `TypeScript`
+- Linting: `Biome`
+- Monorepo: `Turborepo`
+- Git Hooks: `Lefthook`
 
-<!-- Add your custom rules here -->
+## Workspaces
 
-## Rules
+- `apps/cli`: CLI tool (Bun CLI) for visualizing skills, workflows, and MCP servers
+- `apps/web`: Web visualization app (SolidJS + Vite + UnoCSS + Shiki)
+- `apps/desktop`: Desktop app (Tauri + SolidJS + Vite + UnoCSS + Shiki)
+- `packages/shared`: Shared types and parsers
 
-<!-- Add your rules here -->
+## Architecture
 
-## Project ENV
+- CLI starts a local web server and opens browser to visualize data
+- Web app reads data from `window.__DATA__` or fetches from `/api/data`
+- Desktop app wraps web app with Tauri
+- Shared package provides types and file parsing utilities
 
-- **Package Manager**: Bun
-- **Runtime**: Bun
-- **Framework**: Solid.js
-- **Desktop**: Tauri
-- **Language**: TypeScript
-- **Styling**: UnoCSS
-- **Linting**: Biome
-- **Monorepo**: No
+## Commands
 
-## Workflows
-
-- ทำ /follow-package-manifest
-- ทำ /follow-best-practice
-- ทำ /follow-desktop-app
-
-## Skills
-
-- solid-js
-- tauri
-- uno-css
-- biome
+- `bun run dev` - Start all dev servers
+- `bun run build` - Build all packages
+- `bun run typecheck` - Type check all packages
+- `bun run lint` - Lint all files
+- `bun run test` - Run all tests
+- `bun run verify` - Lint + typecheck + test
