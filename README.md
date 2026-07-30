@@ -1,77 +1,68 @@
-# Agent Manager
+# agents-manager
 
 > 🚀 CLI, Web, and Desktop app for managing AI agent skills, workflows, and MCP servers
+
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Bun](https://img.shields.io/badge/bun-%23000000.svg?style=flat&logo=bun&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%233178C6.svg?style=flat&logo=typescript&logoColor=white)
+![Solid](https://img.shields.io/badge/solid-%232C4F7C.svg?style=flat&logo=solid&logoColor=white)
 
-A monorepo application for visualizing and managing AI agent skills, workflows, and MCP servers with real-time markdown preview and syntax highlighting.
+A monorepo for visualizing and managing AI agent skills, workflows, and MCP servers with real-time markdown preview, syntax highlighting, and cross-platform support.
 
-## Quick Start
+```text
+┌─────────────────────────────────────────────────────────┐
+│  Agents Manager — Skills / Workflows / MCP              │
+├──────────────┬──────────────────────────────────────────┤
+│  Sidebar     │  Content Viewer                          │
+│  [skills]    │  ┌────────────────────────────────────┐  │
+│  [workflows] │  │ # workflow-name                    │  │
+│  [mcp]       │  │ > description                      │  │
+│              │  │ ## Goal                            │  │
+└──────────────┴──────────────────────────────────────────┘
+```
 
-1. **Install Dependencies** — `terminal`
-   Install all dependencies for the monorepo
+## Get Started
+
+1. **Install Dependencies**
+   Install all dependencies for the monorepo.
    ```bash
    bun install
    ```
 
-2. **Run CLI with Default Directory** — `terminal`
-   Launch CLI to visualize workflows from windsurf global directory
+2. **Run the CLI**
+   Launch the CLI to visualize workflows from the default directory.
    ```bash
-   bun --filter @agents-manager/cli dev workflows --open
+   bun --filter @agents-manager/cli dev workflows
    ```
 
-3. **Run CLI with Custom Directory** — `terminal`
-   Scan a specific directory for resources
-   ```bash
-   bun --filter @agents-manager/cli dev skills --base-dir "C:\path\to\skills" --open
-   ```
-
-4. **Run Web Dev Server** — `terminal`
-   Start web app development server
+3. **Run the Web App**
+   Start the web app development server.
    ```bash
    bun --filter @agents-manager/web dev
    ```
 
-5. **Run Desktop App** — `terminal`
-   Start Tauri desktop application
+4. **Run the Desktop App**
+   Start the Tauri desktop application.
    ```bash
    bun --filter @agents-manager/desktop dev
    ```
-
-```ansi
-┌─────────────────────────────────────┐
-│  Agents Manager - WORKFLOWS        │
-│                                     │
-│  Server running at http://localhost:4321
-│  Items found: 45                   │
-│  Press Ctrl+C to stop               │
-│                                     │
-│  Scanning directory...              │
-│  Found 45 workflow files            │
-│  Opening browser...                 │
-└─────────────────────────────────────┘
-```
 
 ## Features
 
 | Icon | Feature | Description | Benefit | Usage |
 | :---: |---------|-------------|---------|-------|
-| ![file](https://api.iconify.design/mdi:file-document.svg?color=1976d2) | Skills Visualization | Display all skills with metadata | Quick overview of available skills | `agents-manager skills` |
-| ![workflow](https://api.iconify.design/mdi:sitemap.svg?color=7b1fa2) | Workflows Visualization | Display all workflows with metadata | Understand workflow patterns | `agents-manager workflows` |
-| ![server](https://api.iconify.design/mdi:server.svg?color=00796b) | MCP Servers Visualization | Display MCP servers with tools | See available MCP tools | `agents-manager mcp` |
-| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Search & Filter | Search by name and description | Find resources quickly | Type in search box |
-| ![book](https://api.iconify.design/mdi:book-open-variant.svg?color=303f9f) | Markdown Preview | Rendered markdown with syntax highlighting | Read formatted content | Click any item |
-| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | Syntax Highlighting | Code blocks highlighted with Shiki | Better code readability | Auto-applied |
-| ![tag](https://api.iconify.design/mdi:tag.svg?color=0097a7) | Tag Filtering | Filter resources by tags | Narrow down by category | Click tags |
-| ![folder](https://api.iconify.design/mdi:folder-open.svg?color=388e3c) | Custom Directories | Scan any directory path | Work with non-standard locations | `--dir=<path>` |
-| ![web](https://api.iconify.design/mdi:web.svg?color=1976d2) | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
-| ![cli](https://api.iconify.design/mdi:console.svg?color=ffa000) | CLI Interface | Command-line tool | Scriptable and fast | `agents-manager <command>` |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=303f9f) | Desktop App | Native desktop experience | Standalone application | `bun --filter @agents-manager/desktop dev` |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=00796b) | Hot Reload | Instant updates during development | Faster iteration | Auto-enabled in dev |
-| ![broom](https://api.iconify.design/mdi:broom.svg?color=d32f2f) | HTML Sanitization | DOMPurify for security | Safe markdown rendering | Auto-applied |
+| ![skills](https://api.iconify.design/mdi:file-document.svg?color=%231976d2&width=20) | Skills Visualization | Parse and display skill markdown files | Quick overview of skills | `agents-manager skills` |
+| ![workflows](https://api.iconify.design/mdi:sitemap.svg?color=%237b1fa2&width=20) | Workflows Visualization | Parse and display workflow markdown files | Understand workflow patterns | `agents-manager workflows` |
+| ![mcp](https://api.iconify.design/mdi:server.svg?color=%2300796b&width=20) | MCP Servers Visualization | Parse and display MCP server files and tools | See available MCP tools | `agents-manager mcp` |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=%23ffa000&width=20) | Search & Filter | Filter resources by name, description, and tags | Find resources quickly | Type in the search box |
+| ![markdown](https://api.iconify.design/mdi:book-open-variant.svg?color=%23303f9f&width=20) | Markdown Preview | Rendered markdown with Shiki syntax highlighting | Read formatted content safely | Click any item |
+| ![web](https://api.iconify.design/mdi:web.svg?color=%230097a7&width=20) | Web UI | Interactive browser interface | Modern web experience | `bun --filter @agents-manager/web dev` |
+| ![cli](https://api.iconify.design/mdi:console.svg?color=%23c2185b&width=20) | CLI Interface | Command-line tool with built-in server | Scriptable and fast | `agents-manager <command>` |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=%23388e3c&width=20) | Desktop App | Native desktop app via Tauri | Standalone application | `bun --filter @agents-manager/desktop dev` |
 
 ## Usage
 
-### CLI Commands
+### Usage via CLI
 
 ```bash
 # Visualize skills
@@ -83,6 +74,9 @@ agents-manager workflows
 # Visualize MCP servers
 agents-manager mcp
 
+# Custom directory and port
+agents-manager skills --dir="C:\path\to\skills" --port=8080
+
 # Show help
 agents-manager help
 
@@ -90,57 +84,20 @@ agents-manager help
 agents-manager version
 ```
 
-### CLI Options
+### Usage via Web
+
+Open the web app in a browser and use the sidebar to switch between **Skills**, **Workflows**, and **MCP**. Click any item to view its rendered markdown content. Use the search box to filter by name or description.
 
 ```bash
-# Specify custom directory
-agents-manager skills --dir="C:\path\to\skills"
-
-# Change server port
-agents-manager workflows --port=3000
-
-# Don't auto-open browser
-agents-manager mcp --no-open
-```
-
-### Web App Usage
-
-```bash
-# Start development server
 bun --filter @agents-manager/web dev
-
-# Build for production
-bun --filter @agents-manager/web build
-
-# Preview production build
-bun --filter @agents-manager/web preview
 ```
 
-### Desktop App Usage
+### Usage via Desktop
+
+Open the desktop app and use the same sidebar navigation. The desktop app wraps the web UI in a Tauri shell.
 
 ```bash
-# Start desktop app
 bun --filter @agents-manager/desktop dev
-
-# Build desktop app
-bun --filter @agents-manager/desktop build
-```
-
-```ansi
-$ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflows"
-
-  Agents Manager - WORKFLOWS
-  Server running at http://localhost:4321
-  Items found: 45
-  Press Ctrl+C to stop
-
-  Scanning C:\Users\user\.codeium\windsurf\global_workflows
-  Found 45 workflow files
-  Opening browser...
-
-  [Browser opens at http://localhost:4321]
-  [Sidebar shows 45 workflows]
-  [Click any workflow to view details]
 ```
 
 ## Project
@@ -149,15 +106,11 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
 
 | Icon | Goal | Status | Description |
 | :---: |------|--------|-------------|
-| ![target](https://api.iconify.design/mdi:target.svg?color=1976d2) | Visualize agent resources | ✓ Goal | Display skills, workflows, and MCP servers in an interactive web UI |
-| ![folder](https://api.iconify.design/mdi:folder.svg?color=ffa000) | Parse markdown files | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
-| ![search](https://api.iconify.design/mdi:magnify.svg?color=00796b) | Search and filter | ✓ Goal | Enable quick search across all resources |
-| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
-| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Monorepo structure | ✓ Goal | Shared types and parsers across all apps |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=388e3c) | Real-time updates | ✓ Goal | Hot module replacement during development |
-| ![highlight](https://api.iconify.design/mdi:code-braces.svg?color=c2185b) | Syntax highlighting | ✓ Goal | Code blocks highlighted with Shiki |
-| ![lock](https://api.iconify.design/mdi:lock.svg?color=d32f2f) | Authentication | ✗ Not Goal | No user authentication required |
-| ![database](https://api.iconify.design/mdi:database-off.svg?color=d32f2f) | Database | ✗ Not Goal | File-based data only, no database |
+| ![visualize](https://api.iconify.design/mdi:target.svg?color=%231976d2&width=20) | Visualize resources | ✓ Goal | Display skills, workflows, and MCP servers in a unified UI |
+| ![parse](https://api.iconify.design/mdi:folder.svg?color=%23ffa000&width=20) | Parse markdown | ✓ Goal | Extract metadata and content from markdown files with frontmatter |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=%2300796b&width=20) | Search & filter | ✓ Goal | Enable quick search across all resources |
+| ![cross](https://api.iconify.design/mdi:web.svg?color=%23303f9f&width=20) | Cross-platform | ✓ Goal | Support CLI, web, and desktop interfaces |
+| ![sync](https://api.iconify.design/mdi:package-variant.svg?color=%237b1fa2&width=20) | Shared core | ✓ Goal | Shared types and parsers across all apps |
 
 </details>
 
@@ -165,46 +118,13 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
 
 | Icon | Scope | Status | Description |
 | :---: |-------|--------|-------------|
-| ![file](https://api.iconify.design/mdi:file-document.svg?color=1976d2) | Skills management | ✓ In Scope | Parse and display skill markdown files |
-| ![workflow](https://api.iconify.design/mdi:sitemap.svg?color=7b1fa2) | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
-| ![server](https://api.iconify.design/mdi:server.svg?color=00796b) | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
-| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Search functionality | ✓ In Scope | Filter resources by name and description |
-| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
-| ![cli](https://api.iconify.design/mdi:console.svg?color=0097a7) | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=388e3c) | Desktop app | ✓ In Scope | Native desktop app via Tauri |
-| ![edit](https://api.iconify.design/mdi:pencil-off.svg?color=d32f2f) | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
-| ![robot](https://api.iconify.design/mdi:robot-off.svg?color=d32f2f) | AI integration | ✗ Out of Scope | No AI features, just visualization |
-| ![chart](https://api.iconify.design/mdi:chart-off.svg?color=d32f2f) | Analytics | ✗ Out of Scope | No usage tracking or analytics |
-
-</details>
-
-<details><summary>Key Concepts</summary>
-
-| Icon | Concept | Description |
-| :---: |---------|-------------|
-| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Monorepo | Turborepo-managed workspace with shared packages |
-| ![file](https://api.iconify.design/mdi:file-document.svg?color=ffa000) | Frontmatter | YAML metadata in markdown files for resource properties |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=1976d2) | Type Safety | TypeScript with Zod validation for runtime checks |
-| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | UnoCSS | Utility-first CSS framework for styling |
-| ![shiki](https://api.iconify.design/mdi:language-html.svg?color=00796b) | Shiki | Syntax highlighter for code blocks |
-| ![broom](https://api.iconify.design/mdi:broom.svg?color=388e3c) | DOMPurify | HTML sanitizer for markdown rendering |
-| ![hook](https://api.iconify.design/mdi:hook.svg?color=303f9f) | Git Hooks | Lefthook for pre-commit and pre-push checks |
-| ![ast](https://api.iconify.design/mdi:file-tree.svg?color=0097a7) | AST-based Linting | ast-grep for structural code analysis |
-
-</details>
-
-<details><summary>Core Principles</summary>
-
-| Icon | Principle | Description |
-| :---: |-----------|-------------|
-| ![target](https://api.iconify.design/mdi:target.svg?color=1976d2) | Type Safety | Use TypeScript strict mode, avoid `any` types |
-| ![broom](https://api.iconify.design/mdi:broom.svg?color=388e3c) | Code Quality | Biome linting and formatting for consistency |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=00796b) | Hot Reload | Fast development with HMR in all apps |
-| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Shared Code | Common types and parsers in shared package |
-| ![flask](https://api.iconify.design/mdi:flask.svg?color=c2185b) | Testing | Vitest for unit tests, placeholder tests for MVP |
-| ![lock](https://api.iconify.design/mdi:lock.svg?color=d32f2f) | Security | Sanitize all HTML content with DOMPurify |
-| ![doc](https://api.iconify.design/mdi:file-document-edit.svg?color=ffa000) | Documentation | Comprehensive README and inline comments |
-| ![rocket](https://api.iconify.design/mdi:rocket.svg?color=303f9f) | Performance | Fast builds with Vite and Turborepo caching |
+| ![skills](https://api.iconify.design/mdi:file-document.svg?color=%231976d2&width=20) | Skills management | ✓ In Scope | Parse and display skill markdown files |
+| ![workflows](https://api.iconify.design/mdi:sitemap.svg?color=%237b1fa2&width=20) | Workflows management | ✓ In Scope | Parse and display workflow markdown files |
+| ![mcp](https://api.iconify.design/mdi:server.svg?color=%2300796b&width=20) | MCP servers management | ✓ In Scope | Parse and display MCP server markdown files |
+| ![web](https://api.iconify.design/mdi:web.svg?color=%23303f9f&width=20) | Web visualization | ✓ In Scope | Interactive web UI with markdown preview |
+| ![cli](https://api.iconify.design/mdi:console.svg?color=%230097a7&width=20) | CLI interface | ✓ In Scope | Command-line tool to launch visualization |
+| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=%23388e3c&width=20) | Desktop app | ✓ In Scope | Native desktop app via Tauri |
+| ![edit](https://api.iconify.design/mdi:pencil-off.svg?color=%23d32f2f&width=20) | Content editing | ✗ Out of Scope | Read-only visualization, no editing |
 
 </details>
 
@@ -212,12 +132,29 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
 
 | Icon | Use Case | Description |
 | :---: |----------|-------------|
-| ![search](https://api.iconify.design/mdi:magnify.svg?color=ffa000) | Browse resources | When you need to find and view skills/workflows/MCP servers |
-| ![folder](https://api.iconify.design/mdi:folder-open.svg?color=1976d2) | Custom directories | When scanning non-standard directory paths |
-| ![web](https://api.iconify.design/mdi:web.svg?color=303f9f) | Web preview | When you want a browser-based visualization |
-| ![cli](https://api.iconify.design/mdi:console.svg?color=0097a7) | CLI workflow | When you prefer command-line interface |
-| ![desktop](https://api.iconify.design/mdi:monitor.svg?color=00796b) | Desktop app | When you want a native desktop experience |
-| ![book](https://api.iconify.design/mdi:book-open-variant.svg?color=7b1fa2) | Documentation | When learning about available agent resources |
+| ![explore](https://api.iconify.design/mdi:compass.svg?color=%231976d2&width=20) | Explore skills | Browse all available AI agent skills in one place |
+| ![review](https://api.iconify.design/mdi:eye.svg?color=%237b1fa2&width=20) | Review workflows | Check workflow steps and rules quickly |
+| ![tools](https://api.iconify.design/mdi:toolbox.svg?color=%2300796b&width=20) | Discover MCP tools | List tools exposed by MCP servers |
+
+</details>
+
+<details><summary>Key Concepts</summary>
+
+| Icon | Concept | Description |
+| :---: |---------|-------------|
+| ![parser](https://api.iconify.design/mdi:code-json.svg?color=%231976d2&width=20) | Parser | Reads markdown files and extracts frontmatter and body |
+| ![visualization](https://api.iconify.design/mdi:chart-bar.svg?color=%237b1fa2&width=20) | Visualization | Renders parsed items in a searchable, browsable UI |
+| ![workspace](https://api.iconify.design/mdi:package-variant.svg?color=%2300796b&width=20) | Workspace | A monorepo package for CLI, web, desktop, or shared code |
+
+</details>
+
+<details><summary>Core Principles</summary>
+
+| Icon | Principle | Description |
+| :---: |-----------|-------------|
+| ![real](https://api.iconify.design/mdi:file-check.svg?color=%23388e3c&width=20) | File-based | Data comes directly from markdown files on disk |
+| ![safe](https://api.iconify.design/mdi:shield-check.svg?color=%2300796b&width=20) | Safe rendering | Markdown is sanitized with DOMPurify before rendering |
+| ![fast](https://api.iconify.design/mdi:rocket-launch.svg?color=%23ffa000&width=20) | Fast feedback | Hot reload and fast build via Bun and Vite |
 
 </details>
 
@@ -225,88 +162,34 @@ $ agents-manager workflows --dir="C:\Users\user\.codeium\windsurf\global_workflo
 
 | Icon | Practice | Description |
 | :---: |----------|-------------|
-| ![doc](https://api.iconify.design/mdi:file-document-edit.svg?color=ffa000) | Frontmatter | Always include title and description in markdown files |
-| ![tag](https://api.iconify.design/mdi:tag.svg?color=c2185b) | Tags | Use tags for better categorization and search |
-| ![palette](https://api.iconify.design/mdi:palette.svg?color=7b1fa2) | Consistent styling | Follow UnoCSS utility classes patterns |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=1976d2) | Type safety | Use Zod schemas for all data validation |
-| ![flask](https://api.iconify.design/mdi:flask.svg?color=388e3c) | Test coverage | Write tests for parsers and utilities |
-| ![package](https://api.iconify.design/mdi:package-variant.svg?color=00796b) | Shared code | Put common logic in shared package |
-| ![refresh](https://api.iconify.design/mdi:refresh.svg?color=303f9f) | Git hooks | Never bypass Lefthook hooks |
+| ![lint](https://api.iconify.design/mdi:broom.svg?color=%23c2185b&width=20) | Lint & format | Run `bun run lint` and `bun run format` before committing |
+| ![typecheck](https://api.iconify.design/mdi:code-tags-check.svg?color=%230097a7&width=20) | Type check | Run `bun run typecheck` across the monorepo |
+| ![test](https://api.iconify.design/mdi:test-tube.svg?color=%23388e3c&width=20) | Test | Run `bun run test` before pushing changes |
 
 </details>
 
 ## API References
 
-<details><summary>CLI API</summary>
+<details><summary>CLI Commands</summary>
 
-### Commands
-
-| Command | Description | Options |
+| Command | Description | Example |
 |---------|-------------|---------|
-| `skills` | Visualize skills | `--dir`, `--port`, `--no-open` |
-| `workflows` | Visualize workflows | `--dir`, `--port`, `--no-open` |
-| `mcp` | Visualize MCP servers | `--dir`, `--port`, `--no-open` |
-| `help` | Show help message | - |
-| `version` | Show version info | - |
-
-### Options
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `--dir` | string | Auto-detect | Base directory to scan |
-| `--port` | number | 4321 | Web server port |
-| `--no-open` | flag | false | Don't auto-open browser |
+| `skills` | Visualize skills markdown files | `agents-manager skills --dir=./skills` |
+| `workflows` | Visualize workflow markdown files | `agents-manager workflows` |
+| `mcp` | Visualize MCP server markdown files | `agents-manager mcp --port=8080` |
+| `help` | Show usage help | `agents-manager help` |
+| `version` | Show version | `agents-manager version` |
 
 </details>
 
-<details><summary>Shared Package API</summary>
+<details><summary>Shared Types</summary>
 
-### Types
-
-```typescript
-import type { SkillItem, WorkflowItem, McpServerItem, VisualizationData } from '@agents-manager/shared';
-```
-
-### Parsers
-
-```typescript
-import { parseSkills, parseWorkflows, parseMcpServers, collectVisualizationData } from '@agents-manager/shared';
-
-// Parse skills from directory
-const skills = await parseSkills('/path/to/skills');
-
-// Collect visualization data
-const data = await collectVisualizationData('workflows', '/path/to/base');
-```
-
-</details>
-
-<details><summary>Web App API</summary>
-
-### Scripts
-
-| Script | Description |
-|--------|-------------|
-| `dev` | Start Vite dev server |
-| `build` | Build for production |
-| `preview` | Preview production build |
-| `typecheck` | Run TypeScript checks |
-| `lint` | Run Biome linting |
-| `test` | Run Vitest tests |
-
-</details>
-
-<details><summary>Desktop App API</summary>
-
-### Scripts
-
-| Script | Description |
-|--------|-------------|
-| `dev` | Start Tauri dev server |
-| `build` | Build desktop app |
-| `typecheck` | Run TypeScript checks |
-| `lint` | Run Biome linting |
-| `test` | Run Bun tests |
+| Type | Description |
+|------|-------------|
+| `SkillItem` | Skill metadata and content |
+| `WorkflowItem` | Workflow metadata and content |
+| `McpServerItem` | MCP server metadata, content, and tools |
+| `VisualizationData` | A collection of parsed items with type and total count |
 
 </details>
 
@@ -315,119 +198,30 @@ const data = await collectVisualizationData('workflows', '/path/to/base');
 <details><summary>Tech Stack</summary>
 
 | Layer | Technology | Version | Description |
-|-------|-----------|---------|-------------|
-| Runtime | Bun | 1.3.13+ | JavaScript runtime and package manager |
-| Build | Turborepo | 2.10.3 | Monorepo build system |
-| Linting | Biome | 2.5.2 | Linter and formatter |
-| Git Hooks | Lefthook | 2.1.9 | Git hooks automation |
-| Type Checking | TypeScript | 6.0.3 | Type system |
-| Type Compiler | tsgo | latest | Fast TypeScript compiler |
+|-------|------------|---------|-------------|
+| Runtime | Bun | 1.3.13 | JavaScript runtime and package manager |
+| Language | TypeScript | 6.0.3 | Type-safe JavaScript |
+| Monorepo | Turborepo | 2.10.3 | Task orchestration and caching |
 | Web Framework | SolidJS | 1.9.13 | Reactive UI library |
-| Build Tool | Vite | 8.0.16 | Build tool and dev server |
-| Styling | UnoCSS | 66.7.0 | Utility-first CSS |
-| Icons | Lucide | 1.2.111 | Icon library |
-| Syntax Highlighting | Shiki | 4.2.0 | Code highlighter |
-| Markdown | Marked | 18.0.5 | Markdown parser |
-| Sanitization | DOMPurify | 3.4.9 | HTML sanitizer |
-| Desktop | Tauri | 2.11.0 | Desktop app framework |
-| Testing | Vitest | 4.1.8 | Unit test runner |
-| Testing Library | @solidjs/testing-library | 0.8.10 | Component testing |
-| Validation | Zod | 4.4.3 | Schema validation |
-
-</details>
-
-<details><summary>How It Works</summary>
-
-```ansi
-┌─────────────────────────────────────────────────────────────┐
-│                     Agent Manager Flow                        │
-└─────────────────────────────────────────────────────────────┘
-
-  📂 Directory Scan
-  │
-  ├─→ 📄 Parse Markdown Files
-  │   ├─ Extract frontmatter (title, description, tags)
-  │   ├─ Parse body content
-  │   └─ Validate with Zod schemas
-  │
-  ├─→ 📦 Collect Visualization Data
-  │   ├─ Group by type (skills/workflows/mcp)
-  │   ├─ Index for search
-  │   └─ Prepare for API
-  │
-  ├─→ 🌐 Start Web Server
-  │   ├─ Serve static files from dist
-  │   ├─ API endpoint: /api/data
-  │   └─ Inject data into HTML
-  │
-  ├─→ 🎨 Render Web UI
-  │   ├─ Sidebar: List items with search
-  │   ├─ Header: Type navigation
-  │   └─ ContentViewer: Markdown preview
-  │
-  └─→ 🪟 Desktop App (Tauri)
-      ├─ Wrap web app
-      └─ Native window management
-
-  🔄 Hot Module Replacement
-  │
-  └─→ Instant updates on file changes
-```
+| Styling | UnoCSS | 66.7.0 | Atomic CSS engine |
+| Syntax Highlight | Shiki | 4.2.0 | Code syntax highlighting |
+| Desktop | Tauri | 2.11.0 | Rust-based desktop shell |
+| Lint | Biome | 2.5.2 | Fast linter and formatter |
 
 </details>
 
 <details><summary>Architecture</summary>
 
-```
+```text
 agents-manager/
 ├── apps/
-│   ├── cli/                 # CLI application
-│   │   ├── src/
-│   │   │   ├── cli.ts      # Main entry point
-│   │   │   ├── services/
-│   │   │   │   ├── data.ts # Directory scanning & data collection
-│   │   │   │   └── server.ts # Web server with static file serving
-│   │   │   └── utils/
-│   │   │       └── args.ts # CLI argument parsing
-│   │   └── package.json
-│   ├── web/                 # Web application
-│   │   ├── src/
-│   │   │   ├── components/  # SolidJS components
-│   │   │   │   ├── Header.tsx
-│   │   │   │   ├── Sidebar.tsx
-│   │   │   │   └── ContentViewer.tsx
-│   │   │   ├── stores/
-│   │   │   │   └── visualization.ts
-│   │   │   ├── utils/
-│   │   │   │   ├── data.ts
-│   │   │   │   └── shiki.ts
-│   │   │   ├── App.tsx
-│   │   │   └── main.tsx
-│   │   ├── index.html
-│   │   ├── vite.config.ts
-│   │   ├── uno.config.ts
-│   │   └── package.json
-│   └── desktop/             # Desktop application
-│       ├── src/
-│       │   ├── App.tsx
-│       │   └── main.tsx
-│       ├── src-tauri/       # Tauri Rust backend
-│       ├── vite.config.ts
-│       └── package.json
+│   ├── cli/          # CLI entry point and server
+│   ├── web/          # SolidJS + Vite web app
+│   └── desktop/      # Tauri wrapper around web app
 ├── packages/
-│   └── shared/              # Shared package
-│       ├── src/
-│       │   ├── types/       # TypeScript types
-│       │   │   └── index.ts
-│       │   ├── parsers/     # Markdown parsers
-│       │   │   └── index.ts
-│       │   └── index.ts
-│       └── package.json
-├── biome.jsonc              # Biome configuration
-├── turbo.json               # Turborepo configuration
-├── lefthook.yml             # Git hooks configuration
-├── tsconfig.json            # Root TypeScript config
-└── package.json             # Root package.json
+│   └── shared/       # Types and markdown parsers
+├── package.json      # Workspace root and scripts
+└── turbo.json        # Turborepo task graph
 ```
 
 </details>
@@ -436,7 +230,6 @@ agents-manager/
 
 ```json
 {
-  "prepare": "bunx lefthook install",
   "dev": "turbo dev",
   "build": "turbo build",
   "typecheck": "turbo typecheck",
@@ -448,28 +241,6 @@ agents-manager/
   "clean": "turbo clean && bunx rimraf node_modules"
 }
 ```
-
-</details>
-
-<details><summary>Workflows</summary>
-
-- `/run-dev` - Run development server and fix errors
-- `/ship` - Ship code end-to-end with testing
-- `/commit-and-push` - Commit and push to remote
-- `/update-readme` - Update README.md with project info
-
-</details>
-
-<details><summary>Skills</summary>
-
-- `bun` - Bun runtime and package manager
-- `turborepo` - Monorepo build system
-- `biome` - Linting and formatting
-- `typescript` - Type system
-- `solidjs` - Reactive UI library
-- `vite` - Build tool
-- `unocss` - Utility-first CSS
-- `tauri` - Desktop app framework
 
 </details>
 
