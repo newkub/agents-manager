@@ -1,6 +1,7 @@
 import { createRootRoute, createRoute, createRouter } from '@tanstack/solid-router';
 import { Root } from './routes/__root';
 import { Index } from './routes/index';
+import { Mobile } from './routes/mobile';
 
 const rootRoute = createRootRoute({
   component: Root,
@@ -12,7 +13,13 @@ const indexRoute = createRoute({
   component: Index,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute]);
+const mobileRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/mobile',
+  component: Mobile,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, mobileRoute]);
 
 export function getRouter() {
   return createRouter({
