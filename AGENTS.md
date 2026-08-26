@@ -2,33 +2,47 @@
 
 ## Project
 
-- Project Type: `monorepo`
+- Project Type: `single-root application`
 - Package Manager: `Bun`
 - Runtime: `Bun`
 - Language: `TypeScript`
 - Linting: `Biome`
-- Monorepo: `Turborepo`
 - Git Hooks: `Lefthook`
+- Router: `TanStack Router (Solid)`
+- Backend: `Elysia` + `oRPC`
+- Desktop: `Tauri`
 
-## Workspaces
+## Structure
 
-- `apps/cli`: CLI tool (Bun CLI) for visualizing skills, workflows, and MCP servers
-- `apps/web`: Web visualization app (SolidJS + Vite + UnoCSS + Shiki)
-- `apps/desktop`: Desktop app (Tauri + SolidJS + Vite + UnoCSS + Shiki)
-- `packages/shared`: Shared types and parsers
+- `src/`: SolidJS application source (components, stores, utils, lib, routes, router)
+- `src/lib/`: Shared types and markdown parsers
+- `src/api/`: oRPC router definitions
+- `src/server/`: Elysia HTTP server
+- `src-tauri/`: Tauri Rust desktop backend
+- `index.html`: Vite entry HTML
+- `package.json`: Single project manifest (no workspaces)
+- `vite.config.ts`, `uno.config.ts`, `tsconfig.json`: Build and type configuration
 
 ## Architecture
 
-- CLI starts a local web server and opens browser to visualize data
-- Web app reads data from `window.__DATA__` or fetches from `/api/data`
-- Desktop app wraps web app with Tauri
-- Shared package provides types and file parsing utilities
+- `src/main.tsx` bootstraps a TanStack Router application.
+- `src/routes/index.tsx` renders the `App` component.
+- `src/stores/visualization.ts` fetches data on mount.
+- `src/utils/orpc.ts` provides a type-safe oRPC client.
+- `src/api/router.ts` exposes `visualization.getData` over oRPC.
+- `src/server/index.ts` runs an Elysia server at `http://localhost:3000` and mounts the oRPC handler at `/rpc`.
+- Vite dev server proxies `/rpc` to the Elysia server.
+- `src-tauri/` wraps the web build in a Tauri desktop shell.
 
 ## Commands
 
-- `bun run dev` - Start all dev servers
-- `bun run build` - Build all packages
-- `bun run typecheck` - Type check all packages
-- `bun run lint` - Lint all files
-- `bun run test` - Run all tests
-- `bun run verify` - Lint + typecheck + test
+- `bun run dev` — Start Vite dev server (port `5173`)
+- `bun run build` — Build the web app to `dist/`
+- `bun run server` — Start the Elysia backend with hot reload
+- `bun run start` — Start the Elysia backend
+- `bun run typecheck` — Type check with `tsc --noEmit`
+- `bun run lint` — Lint and format check with Biome
+- `bun run test` — Run tests with Vitest
+- `bun run verify` — Lint + typecheck + test
+- `bun run tauri:dev` — Start the Tauri desktop app in development
+- `bun run tauri:build` — Build the Tauri desktop app

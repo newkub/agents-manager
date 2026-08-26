@@ -12,7 +12,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "types": ["bun-types"]
   },
-  "exclude": ["node_modules", "dist", "src-tauri/target"]
+  "include": ["src", "vitest.config.ts"],
+  "exclude": ["node_modules", "dist", "dist-ssr", "src-tauri/target"]
 }
